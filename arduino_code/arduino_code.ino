@@ -54,7 +54,11 @@ void loop() {
    Serial.print("ug/m3");
   
    conc_CO= 1000*analogRead(AOUTpin);//reads the analaog value from the CO sensor's AOUT pin
-    
+    if(conc_CO<0){
+      
+      conc_CO= -(conc_CO);
+      
+      }
    Serial.print("\nCO level= ");
    
    Serial.print(conc_CO);
